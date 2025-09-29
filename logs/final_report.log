@@ -1,0 +1,28 @@
+=== Keylogger Detection Toolkit Summary ===
+
+--- Results from output.log ---
+[!] Suspicious processes detected:
+    PID 2345 - /usr/bin/keylogger
+    PID 2345 - /usr/bin/keylogger
+    PID 4567 - /usr/bin/stealth_capture
+    PID 4567 - /usr/bin/stealth_capture
+
+--- Results from startup_output.log ---
+[!] Suspicious startup entries detected:
+    C:\\Users\\Karen\\AppData\\Roaming\\keylogger.exe
+    C:\\Users\\Karen\\AppData\\Roaming\\keylogger.exe
+    C:\\Users\\Karen\\AppData\\Local\\stealth_capture.bat
+    C:\\Users\\Karen\\AppData\\Local\\stealth_capture.bat
+
+--- Results from network_output.log ---
+[!] Suspicious outbound connections detected:
+    PID 3456 - 185.12.45.67:8080
+    PID 4567 - 203.0.113.99:1337
+
+--- Results from keystroke_output.log ---
+[!] Suspicious keystroke patterns detected:
+    User typed: backspace backspace 321drowssap
+    Clipboard accessed
+    User typed: stealth_capture.exe
+    User typed: stealth_capture.exe
+

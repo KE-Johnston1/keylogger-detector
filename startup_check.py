@@ -1,18 +1,16 @@
 import os
 
-def scan_processes():
+def scan_startup():
     suspicious_keywords = ["keylogger", "logger", "stealth", "capture"]
     flagged = []
 
-    log_path = "logs/ps.log"
-    output_path = "logs/output.log"
+    log_path = "logs/startup.log"
+    output_path = "logs/startup_output.log"
 
-    # Confirm log file exists
     if not os.path.exists(log_path):
-        print(f"[!] Log file not found: {log_path}")
+        print(f"[!] Startup log not found: {log_path}")
         return
 
-    # Read and scan for suspicious keywords
     with open(log_path, "r") as file:
         lines = file.readlines()
         for line in lines:
@@ -20,17 +18,15 @@ def scan_processes():
                 if keyword in line.lower():
                     flagged.append(line.strip())
 
-    # Write results to output file
     with open(output_path, "w") as out:
         if flagged:
-            out.write("[!] Suspicious processes detected:\n")
+            out.write("[!] Suspicious startup entries detected:\n")
             for entry in flagged:
                 out.write(f"    {entry}\n")
-            print(f"[✓] {len(flagged)} suspicious entries saved to {output_path}")
+            print(f"[✓] {len(flagged)} suspicious startup entries saved to {output_path}")
         else:
-            out.write("[✓] No suspicious processes found\n")
-            print(f"[✓] No suspicious entries found. Logged to {output_path}")
+            out.write("[✓] No suspicious startup entries found\n")
+            print(f"[✓] No suspicious startup entries found. Logged to {output_path}")
 
 if __name__ == "__main__":
-    scan_processes()
-
+    scan_startup()
